@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JTV Premium</title>
+    <title></title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
     <!-- Estilos Globales -->
@@ -14,7 +14,49 @@
 </head>
 
 <body>
+    <div class="container">
+        <div>
+            <form id="email-generator" class="text-center">
+                <div>
+                    <label for="length_user_email">Longitud Usuario</label>
+                    <input type="number" id="length_user_email">
+                    <input type="range" name="length_user_email" max="50">
+                </div>
+                <div>
+                    <label for="domain_email">Dominio Correo</label>
+                    <input type="text" name="domain_email" id="domain_email">
+                </div>
+                <div>
+                    <label for="quantity_email">Cantidad Correos</label>
+                    <input type="number" name="quantity_email" id="quantity_email">
+                </div>
+                <div>
+                    <div>
+                        <input type="checkbox" name="human_email" id="human_email">
+                        <label for="human_email">Correo Humano</label>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <input type="radio" name="trick" id="dot_trick" value="dot">
+                        <label for="dot_trick">Agregar "."</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="trick" id="plus_trick" value="plus">
+                        <label for="plus_trick">Agregar "+"</label>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Generar</button>
+                </div>
+            </form>
+        </div>
 
+        <div id="email-response">
+
+        </div>
+
+    </div>
 </body>
 
 </html>
