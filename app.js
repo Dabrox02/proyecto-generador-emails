@@ -17,7 +17,7 @@ export const app = (e) => {
             // ALEATORY EMAILS
             if (e.target.matches("#generate-aleatory-emails")) {
                 e.preventDefault();
-                $("#email_response").innerHTML = "";
+                $("#email-response").innerHTML = "";
                 let data = Object.fromEntries(new FormData(e.target));
                 if (!data.length_email && !isNaN(data.length_email)) {
                     alert("Longitud del email es requerido");
@@ -33,7 +33,7 @@ export const app = (e) => {
                     } else {
                         let correos = generateAleatoryEmails(data);
                         correos.forEach((e) => {
-                            $("#email_response").insertAdjacentHTML("beforeend", `<li>${e}</li>`);
+                            $("#email-response").insertAdjacentHTML("beforeend", `<li>${e}</li>`);
                         })
                     }
                 }
@@ -45,6 +45,8 @@ export const app = (e) => {
         d.addEventListener("input", (e) => {
             if (e.target.matches("[name='type_email']")) {
                 $("#form-container").innerHTML = "";
+                $("#email-response").innerHTML = "";
+
                 if (e.target.matches("#aleatory_email")) {
                     $("#form-container").insertAdjacentHTML("beforeend", "<aleatory-email-component></aleatory-email-component>")
                 }

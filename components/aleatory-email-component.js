@@ -8,16 +8,16 @@ export class AleatoryEmailComponent extends HTMLElement {
         this.innerHTML = /*html*/`
     <form id="generate-aleatory-emails" class="text-center">
         <div>
+            <label for="domain_email">Dominio Correo</label>
+            <input type="text" name="domain_email" id="domain_email" required value="example.com">
+        </div>
+        <div>
             <label for="length_email">Longitud Usuario Correo</label>
             <input type="number" name="length_email" id="length_email" min="4" max="40" required value="5">
         </div>
         <div>
             <label for="quantity_email">Cantidad Correos</label>
             <input type="number" name="quantity_email" id="quantity_email" required value="5">
-        </div>
-        <div>
-            <label for="domain_email">Dominio Correo</label>
-            <input type="text" name="domain_email" id="domain_email" required value="example.com">
         </div>
         <div>
             <h2>Settings</h2>
