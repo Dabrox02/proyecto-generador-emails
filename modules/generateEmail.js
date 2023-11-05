@@ -47,6 +47,18 @@ function getAleatoryEmail(length, settings) {
     })
 }
 
+// Nombres Aleatorios
+async function getAleatoryNames() {
+    let maxNames = numberRandomBetween(1, 2);
+    let userMail = [];
+    for (let i = 0; i < maxNames; i++) {
+        let index = numberRandomBetween(0, 592);
+        let name = await (await fetch("data/names.json")).json();
+        userMail.push(name[index]['human'].toLowerCase());
+    }
+    return userMail.join('.').split("");
+}
+
 // Generador Emails Aleatorios
 export const generateAleatoryEmails = (data) => {
     let settings = [];
@@ -64,9 +76,31 @@ export const generateAleatoryEmails = (data) => {
         }
         return correo.join("");
     })
-    return correos.map((e) => `${e}@${data.domain_email}`)
+    return correos.map((e) => `${e}@${data.domain_email}`);
 }
 
+// Generador Emails Humanos Aleatorios
+export const generateHumanEmails = async (data) => {
+    let settings = [];
+    if (data.add_letters_upper === "on") settings.push("upper");
+    if (data.add_letters_lower === "on") settings.push("lower");
+    if (data.add_numbers === "on") settings.push("number");
+
+    let correos = await Promise.all([...Array.from({ length: Number(data.quantity_email) })].map(async (e) => {
+        let correo = await getAleatoryNames();
+
+        if (data.dot_trick === "on") {
+            correo = insertRandomDots(correo);
+        }
+        if (data.plus_trick === "on") {
+            correo = insertPlusTrick(correo, settings);
+        }
+        return correo.join("");
+    }))
+    return correos.map((e) => `${e}@${data.domain_email}`);
+}
+
+// Generador Emails Custom Aleatorios
 export const generateCustomEmails = (data) => {
     let settings = [];
     if (data.add_letters_upper === "on") settings.push("upper");
@@ -83,5 +117,5 @@ export const generateCustomEmails = (data) => {
         }
         return correo.join("");
     })
-    return correos.map((e) => `${e}@${data.domain_email}`)
+    return correos.map((e) => `${e}@${data.domain_email}`);
 }
