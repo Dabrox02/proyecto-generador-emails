@@ -67,15 +67,21 @@ export const generateAleatoryEmails = (data) => {
     return correos.map((e) => `${e}@${data.domain_email}`)
 }
 
+export const generateCustomEmails = (data) => {
+    let settings = [];
+    if (data.add_letters_upper === "on") settings.push("upper");
+    if (data.add_letters_lower === "on") settings.push("lower");
+    if (data.add_numbers === "on") settings.push("number");
 
-
-
-// {
-//     "length_email": "5",
-//     "quantity_email": "5",
-//     "add_letters_upper": "on",
-//     "add_letters_lower": "on",
-//     "add_numbers": "on",
-//     "dot_trick": "dot",
-//     "plus_trick": "plus"
-// }
+    let correos = [...Array.from({ length: Number(data.quantity_email) })].map((e) => {
+        let correo = data.user_email.split("");
+        if (data.dot_trick === "on") {
+            correo = insertRandomDots(correo);
+        }
+        if (data.plus_trick === "on") {
+            correo = insertPlusTrick(correo, settings);
+        }
+        return correo.join("");
+    })
+    return correos.map((e) => `${e}@${data.domain_email}`)
+}
