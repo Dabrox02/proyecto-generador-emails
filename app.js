@@ -33,7 +33,7 @@ export const app = (e) => {
                     } else {
                         let correos = generateAleatoryEmails(data);
                         correos.forEach((e) => {
-                            $("#email-response").insertAdjacentHTML("beforeend", `<li>${e}</li>`);
+                            $("#email-response").insertAdjacentHTML("beforeend", `<li class="list-group-item">${e}</li>`);
                         })
                     }
                 }
@@ -52,7 +52,7 @@ export const app = (e) => {
                     } else {
                         let correos = await generateHumanEmails(data);
                         correos.forEach((e) => {
-                            $("#email-response").insertAdjacentHTML("beforeend", `<li>${e}</li>`);
+                            $("#email-response").insertAdjacentHTML("beforeend", `<li class="list-group-item">${e}</li>`);
                         })
                     }
                 }
@@ -75,7 +75,7 @@ export const app = (e) => {
                     } else {
                         let correos = generateCustomEmails(data);
                         correos.forEach((e) => {
-                            $("#email-response").insertAdjacentHTML("beforeend", `<li>${e}</li>`);
+                            $("#email-response").insertAdjacentHTML("beforeend", `<li class="list-group-item">${e}</li>`);
                         })
                     }
                 }
@@ -108,8 +108,24 @@ export const app = (e) => {
                     e.target.checked = true;
                 }
             }
-        })
 
+            if (e.target.matches("#copy-emails, #copy-emails *")) {
+                const elementosLi = $a('li');
+                let contenidoCopiado = '';
+
+                for (let i = 0; i < elementosLi.length; i++) {
+                    contenidoCopiado += elementosLi[i].textContent + '\n';
+                }
+
+                const temp = document.createElement('textarea');
+                temp.value = contenidoCopiado;
+                document.body.appendChild(temp);
+                temp.select();
+                document.execCommand('copy');
+                document.body.removeChild(temp);
+            }
+        })
     }
 
 }
+

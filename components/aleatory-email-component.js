@@ -7,44 +7,44 @@ export class AleatoryEmailComponent extends HTMLElement {
     _loadForm() {
         this.innerHTML = /*html*/`
     <form id="generate-aleatory-emails" class="text-center">
-        <div>
-            <label for="domain_email">Dominio Correo</label>
-            <input type="text" name="domain_email" id="domain_email" required value="example.com">
+        <div class="input-group mb-3">
+            <label for="domain_email" class="input-group-text">Dominio Correo</label>
+            <input type="text" name="domain_email" id="domain_email" class="form-control" required value="example.com">
         </div>
-        <div>
-            <label for="length_email">Longitud Usuario Correo</label>
-            <input type="number" name="length_email" id="length_email" min="4" max="40" required value="5">
+        <div class="input-group mb-3">
+            <label for="length_email" class="input-group-text">Longitud Usuario</label>
+            <input type="number" name="length_email" id="length_email" class="form-control" min="4" max="40" required value="5">
         </div>
-        <div>
-            <label for="quantity_email">Cantidad Correos</label>
-            <input type="number" name="quantity_email" id="quantity_email" required value="5">
+        <div class="input-group mb-3">
+            <label for="quantity_email" class="input-group-text">Cantidad Correos</label>
+            <input type="number" name="quantity_email" id="quantity_email" class="form-control" required placeholder="Cantidad Correos" title="Cantidad Correos" value="5">
         </div>
-        <div>
-            <h2>Settings</h2>
+        <div class="mb-3">
+            <h3>Settings</h3>
             <div id="settings">
-                <div>
-                    <input type="checkbox" name="add_letters_upper" id="setting_letters_upper" checked>
-                    <label for="setting_letters_upper">Mayusculas</label>
+                <div class="form-check form-switch d-flex justify-content-center">
+                    <input class="form-check-input me-2" type="checkbox" role="switch" name="add_letters_upper" id="setting_letters_upper" checked>
+                    <label class="form-check-label" for="setting_letters_upper">Mayusculas</label>
                 </div>
-                <div>
-                    <input type="checkbox" name="add_letters_lower" id="setting_letters_lower" checked>
-                    <label for="setting_letters_lower">Minusculas</label>
+                <div class="form-check form-switch d-flex justify-content-center">
+                    <input class="form-check-input me-2" type="checkbox" role="switch" name="add_letters_lower" id="setting_letters_lower" checked>
+                    <label class="form-check-label" for="setting_letters_lower">Minusculas</label>
                 </div>
-                <div>
-                    <input type="checkbox" name="add_numbers" id="setting_numbers" checked>
-                    <label for="setting_numbers">Numeros</label>
+                <div class="form-check form-switch d-flex justify-content-center">
+                    <input class="form-check-input me-2" type="checkbox" role="switch" name="add_numbers" id="setting_numbers" checked>
+                    <label class="form-check-label" for="setting_numbers">Numeros</label>
                 </div>
             </div>
         </div>
-        <div>
-            <h2>Trucos</h2>
-            <div id="tricks">
-                <input type="checkbox" name="dot_trick" id="dot_trick">
-                <label for="dot_trick">Agregar "."</label>
+        <div class="mb-3">
+            <h3>Trucos</h3>
+            <div class="form-check form-switch d-flex justify-content-center">
+                <input class="form-check-input me-2" type="checkbox" role="switch" name="dot_trick" id="dot_trick">
+                <label class="form-check-label" for="dot_trick">Agregar "."</label>
             </div>
-            <div>
-                <input type="checkbox" name="plus_trick" id="plus_trick">
-                <label for="plus_trick">Agregar "+"</label>
+            <div class="form-check form-switch d-flex justify-content-center">
+                <input class="form-check-input me-2" type="checkbox" role="switch" name="plus_trick" id="plus_trick">
+                <label class="form-check-label" for="plus_trick">Agregar "+"</label>
             </div>
         </div>
         <div>

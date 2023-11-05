@@ -7,40 +7,40 @@ export class HumanEmailComponent extends HTMLElement {
     _loadForm() {
         this.innerHTML = /*html*/`
     <form id="generate-human-emails" class="text-center">
-        <div>
-            <label for="domain_email">Dominio Correo</label>
-            <input type="text" name="domain_email" id="domain_email" required value="example.com">
+        <div class="input-group mb-3">
+            <label for="domain_email" class="input-group-text">Dominio Correo</label>
+            <input type="text" name="domain_email" id="domain_email" class="form-control" required placeholder="example.com">
         </div>
-        <div>
-            <label for="quantity_email">Cantidad Correos</label>
-            <input type="number" name="quantity_email" id="quantity_email" required value="5">
+        <div class="input-group mb-3">
+            <label for="quantity_email" class="input-group-text">Cantidad Correos</label>
+            <input type="number" name="quantity_email" id="quantity_email" class="form-control" required value="5">
         </div>
-        <div>
+        <div class="mb-3">
             <h2>Settings</h2>
             <div id="settings">
-                <div>
-                    <input type="checkbox" name="add_letters_upper" id="setting_letters_upper" checked>
-                    <label for="setting_letters_upper">Mayusculas</label>
+                <div class="form-check form-switch d-flex justify-content-center">
+                    <input class="form-check-input me-2" type="checkbox" name="add_letters_upper" id="setting_letters_upper" checked>
+                    <label class="form-check-label" for="setting_letters_upper">Mayusculas</label>
                 </div>
-                <div>
-                    <input type="checkbox" name="add_letters_lower" id="setting_letters_lower" checked>
-                    <label for="setting_letters_lower">Minusculas</label>
+                <div class="form-check form-switch d-flex justify-content-center">
+                    <input class="form-check-input me-2" type="checkbox" name="add_letters_lower" id="setting_letters_lower" checked>
+                    <label class="form-check-label" for="setting_letters_lower">Minusculas</label>
                 </div>
-                <div>
-                    <input type="checkbox" name="add_numbers" id="setting_numbers" checked>
-                    <label for="setting_numbers">Numeros</label>
+                <div class="form-check form-switch d-flex justify-content-center">
+                    <input class="form-check-input me-2" type="checkbox" name="add_numbers" id="setting_numbers" checked>
+                    <label class="form-check-label" for="setting_numbers">Numeros</label>
                 </div>
             </div>
         </div>
-        <div>
+        <div class="mb-3">
             <h2>Trucos</h2>
-            <div id="tricks">
-                <input type="checkbox" name="dot_trick" id="dot_trick">
-                <label for="dot_trick">Agregar "."</label>
+            <div class="form-check form-switch d-flex justify-content-center">
+                <input class="form-check-input me-2" type="checkbox" name="dot_trick" id="dot_trick">
+                <label class="form-check-label" for="dot_trick">Agregar "."</label>
             </div>
-            <div>
-                <input type="checkbox" name="plus_trick" id="plus_trick">
-                <label for="plus_trick">Agregar "+"</label>
+            <div class="form-check form-switch d-flex justify-content-center">
+                <input class="form-check-input me-2" type="checkbox" name="plus_trick" id="plus_trick">
+                <label class="form-check-label" for="plus_trick">Agregar "+"</label>
             </div>
         </div>
         <div>
